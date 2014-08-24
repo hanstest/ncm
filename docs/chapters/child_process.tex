@@ -1,0 +1,21 @@
+
+\chapter{Child Process}
+
+\section{Introduction}
+\section{child.pid}
+This property is an integer, indicating the process identifier (normally referred to as the PID) of a child process. This PID is used to uniquely identify a process.
+\lstinputlisting[caption={The PID of a child process is written to the console},label={listing_child_pid}]{../src/child_process/001_pid.js}Line \ref{line_child_pid} in Listing \ref{listing_child_pid} prints the process ID to the console.
+\section{child.kill}
+We can use this function to send a signal to a child process. A default signal \texttt{SIGTERM} will be sent if no argument is provided as shown in Listing \ref{listing_kill_default}.
+When running the above code, it is verified that the process is terminated by signal \texttt{SIGTERM}.
+
+\lstinputlisting[caption={A child process is terminated by the default signal \texttt{SIGTERM}},label={listing_kill_default}]{../src/child_process/002_kill_default.js}
+Now we send a signal \texttt{SIGHUP} to the child process as shown in Listing \ref{listing_kill_sighup}. When running the above code, it is verified that the process is terminated by signal \texttt{SIGHUP}.
+
+\lstinputlisting[caption={A child process is terminated by signal \texttt{SIGHUP}},label={listing_kill_sighup}]{../src/child_process/002_kill_sighup.js}
+What if sending an invalid signal to a child process? A signal \texttt{NOOP} is sent to a child process as demonstrated in Listing \ref{listing_kill_noop}. When running the above code, it is verified that an error is thrown and it complains about the unknown signal \texttt{NOOP}.
+\lstinputlisting[caption={An invalid signal \texttt{NOOP} is sent to a child process},label={listing_kill_noop}]{../src/child_process/002_kill_noop.js}
+Finally if \texttt{child.kill()} is not called and a child process exits gracefully, a \texttt{null} signal is expected. It is verified by the code in Listing \ref{listing_finish_null_signal}. \lstinputlisting[caption={No signal is sent to a child process and it exits cleanly},label={listing_finish_null_signal}]{../src/child_process/002_finish_null_signal.js}
+\section{child\_process.spawn}
+This function allows us to launch a new process with the given command. The code in Listing \ref{listing_spawn_simple} lists all files under the current directory and prints the file list to the console. 
+\lstinputlisting[caption={Spawn a new process to list files under the current directory},label={listing_spawn_simple}]{../src/child_process/003_spawn_simple.js}

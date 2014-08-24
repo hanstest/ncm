@@ -1,0 +1,12 @@
+# The Webstorm settings file
+.idea
+
+# Node modules
+docs/node_modules/
+
+# Chapter latex files
+./docs/chapters/*.tex
+
+# Information files
+info/
+

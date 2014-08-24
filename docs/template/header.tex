@@ -1,0 +1,162 @@
+\documentclass[12pt]{memoir}
+
+\usepackage[a4paper,margin=0.8in]{geometry}
+%\usepackage[onehalfspacing]{setspace}
+
+
+% Below is settings for listings package. It does not support JavaScript by default.
+% We need to customize the settings to support JavaScript.
+\usepackage{listings}
+\usepackage{color}
+
+% This package is needed for courier font in the listings.
+\usepackage[T1]{fontenc} 
+\usepackage{courier}
+
+% Make sure the listings' indentation is in alignment with other paragraphs.
+\usepackage{calc}
+\newlength\listingnumberwidth
+\setlength\listingnumberwidth{\widthof{00} + 1em}
+
+% Define color schemes for different keywords and background color.
+% See http://latexcolor.com/ for more color definitons.
+\definecolor{ivory}{rgb}{1.0, 1.0, 0.94}
+\definecolor{mintcream}{rgb}{0.96, 1.0, 0.98}
+\definecolor{eggshell}{rgb}{0.94, 0.92, 0.84}
+\definecolor{isabelline}{rgb}{0.96, 0.94, 0.93}
+\definecolor{cornsilk}{rgb}{1.0, 0.97, 0.86}
+\definecolor{beige}{rgb}{0.96, 0.96, 0.86}
+\definecolor{blanchedalmond}{rgb}{1.0, 0.92, 0.8}
+\definecolor{bisque}{rgb}{1.0, 0.89, 0.77}
+\definecolor{nicered}{rgb}{.647,.129,.149} % This color is also used in the chapter numbering
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\lstdefinelanguage{JavaScript}{
+  keywords={
+    break, case, catch, continue, debugger, default, delete, do, else, false, 
+    finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, 
+    true, try, typeof, var, void, while, with
+  },
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  ndkeywords={require, this, console},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  sensitive=true
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{ivory}, % bg coloor of code
+   extendedchars=true,
+   basicstyle=\scriptsize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\scriptsize\color{nicered},
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b,
+   frame=line,
+   aboveskip=\bigskipamount,
+   xleftmargin=\listingnumberwidth,
+   numbersep=1em,
+   escapeinside={/*@}{@*/}
+}
+% End of settings for listings.
+
+
+\usepackage{color,calc,graphicx,soul}
+
+\makeatletter
+\newlength\dlf@normtxtw
+\setlength\dlf@normtxtw{\textwidth}
+\def\myhelvetfont{\def\sfdefault{mdput}}
+\newsavebox{\feline@chapter}
+\newcommand\feline@chapter@marker[1][4cm]{
+\sbox\feline@chapter{
+\resizebox{!}{#1}{\fboxsep=1pt
+\colorbox{nicered}{\color{white}\bfseries\sffamily\thechapter}
+}}
+\rotatebox{90}{
+\resizebox{
+\heightof{\usebox{\feline@chapter}}+\depthof{\usebox{\feline@chapter}}}
+{!}{\scshape\so\@chapapp}}\quad
+\raisebox{\depthof{\usebox{\feline@chapter}}}{\usebox{\feline@chapter}}
+}
+\newcommand\feline@chm[1][4cm]{
+\sbox\feline@chapter{\feline@chapter@marker[#1]}
+\makebox[0pt][l]{
+\makebox[1cm][r]{\usebox\feline@chapter}
+}}
+\makechapterstyle{daleif1}{
+\renewcommand\chapnamefont{\normalfont\Large\scshape\raggedleft\so}
+\renewcommand\chaptitlefont{\normalfont\HUGE\bfseries\scshape\color{nicered}}
+\renewcommand\chapternamenum{}
+\renewcommand\printchaptername{}
+\renewcommand\printchapternum{\null\hfill\feline@chm[2.5cm]\par}
+\renewcommand\afterchapternum{\par\vskip\midchapskip}
+\renewcommand\printchaptertitle[1]{\chaptitlefont\raggedleft ##1\par}
+}
+\makeatother
+\chapterstyle{daleif1}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{7pt plus 2pt}
+
+\makeatletter
+\def\maketitle{
+  \null
+  \thispagestyle{empty}
+  \vfill
+  \begin{center}
+    \leavevmode
+    \bfseries
+    {\HUGE\raggedleft\@title\par}
+    \hrulefill\par
+    \normalfont
+    {\Large\raggedleft \@author\par}
+    \vskip 1cm
+  \end{center}
+  \vfill
+  \null
+  \cleardoublepage
+  }
+\makeatother
+\author{David Z. Han}
+\title{Node.js Core Modules}
+\date{}
+
+
+
+
+\begin{document}
+
+%\tableofcontents
+
+\let\cleardoublepage\clearpage
+
+\maketitle
+
+\frontmatter
+
+\null\vfill
+
+\begin{flushleft}
+    \textit{Node.js Core Modules}
+    \copyright 2014
+    \bigskip
+\end{flushleft}
+
+\let\cleardoublepage\clearpage
+
+\mainmatter
+\sloppy

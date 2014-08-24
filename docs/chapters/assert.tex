@@ -1,0 +1,55 @@
+
+\chapter{Assertion Testing}
+
+\section{Introduction}
+This module is used for writing unit tests for your applications, you can access it with \texttt{require('assert')}.\section{assert.fail}
+\subsection*{Syntax:}
+\begin{center}\texttt{assert.fail(actual, expected, message, operator)}
+
+\end{center}where
+\begin{itemize}
+\item \texttt{actual}: the actual value returned by your function
+\item \texttt{expected}: the value you expect your function returns
+\item \texttt{message}: the message you want to display when an exception is thrown
+\item \texttt{operator}: the operator is used to separate the values for \texttt{actual} and \texttt{expected} when \texttt{message} is falsy.
+\end{itemize}
+This function throws an exception that displays the message your provided via parameter \texttt{message} or the values for \texttt{actual} and \texttt{expected} separated by the delimiter you provide via parameter \texttt{separator}.
+
+\subsection{Three Arguments}
+Let's start with an example with three arguments: \texttt{actual}, \texttt{expected} and \texttt{message}, which is also used most often in practice. It is shown in \textit{Listing~\ref{001_fail_with_message.js}}.
+\lstinputlisting[caption={\textit{An exception is thrown with customized message}},label={001_fail_with_message.js}]{../src/assert/001_fail_with_message.js}
+Running the code in \textit{Listing~\ref{001_fail_with_message.js}} produces the log as shown in \textit{Listing~\ref{001_fail_with_message.log}}.\lstinputlisting[caption={\textit{The error messages of running script in Listing~\ref{001_fail_with_message.js}}},label={001_fail_with_message.log}]{../src/assert/001_fail_with_message.log}
+A few takeaways from the error messages in \textit{Listing~\ref{001_fail_with_message.log}}.
+\begin{itemize}
+\item the exception thrown by \texttt{assert.fail} is an instance of \texttt{assert.AssertionError}, which inherits from Javascript's \texttt{Error} object.
+\item the error message \texttt{"1 is not equal to 2"} is the customized message provided by you.
+\end{itemize}
+We can also put the function call into a \texttt{try...catch} statement as shown in \textit{Listing~\ref{001_fail_with_message_catch.js}}.
+\lstinputlisting[caption={\textit{An exception is thrown and caught}},label={001_fail_with_message_catch.js}]{../src/assert/001_fail_with_message_catch.js}
+\subsection{Four Arguments}
+The fourth argument \texttt{operator} will be used to separate the the actual value and expected value when the third argument \texttt{message} is falsy. We add the fourth argument as shown in \textit{Listing~\ref{001_fail_truthy_message.js}}.
+\lstinputlisting[caption={\textit{An exception is thrown with truthy message}},label={001_fail_truthy_message.js}]{../src/assert/001_fail_truthy_message.js}
+Running the code in \textit{Listing~\ref{001_fail_truthy_message.js}} produces the error stack trace as shown in \textit{Listing~\ref{001_fail_truthy_message.log}}.\lstinputlisting[caption={\textit{The error messages of running script in Listing~\ref{001_fail_truthy_message.js}}},label={001_fail_truthy_message.log}]{../src/assert/001_fail_truthy_message.log}
+An astute reader will notice that the error message in \textit{Listing~\ref{001_fail_truthy_message.log}} is the same as the one in \textit{Listing~\ref{001_fail_with_message.log}}, which indicates that the fourth argument \texttt{operator} is not used when the third argument \texttt{message} is truthy. Let's see what will happen if the third argument is falsy. The code snippet in \textit{Listing~\ref{001_fail_empty_message.js}} shows the changes.\lstinputlisting[caption={\textit{An exception is thrown with falsy message}},label={001_fail_empty_message.js}]{../src/assert/001_fail_empty_message.js}
+The error message in \textit{Listing~\ref{001_fail_truthy_message.log}} shows that the the \texttt{operator} we provided is used to separate the actual value and the expected value.\lstinputlisting[caption={\textit{The error messages of running script in Listing~\ref{001_fail_empty_message.js}}},label={001_fail_empty_message.log}]{../src/assert/001_fail_empty_message.log}
+\section{assert.ok}
+\subsection*{Syntax:}
+\begin{center}\texttt{assert.ok(value, [message])}
+
+\end{center}where
+\begin{itemize}
+\item \texttt{value}: check whether the value is truthy
+\item \texttt{message}: the message you want to display when an exception is thrown
+\end{itemize}
+
+This function is equivalent to function \texttt{assert.equal(!!value, true, message);} in Section~\ref{sec:assert.equal}.
+\subsection{One Argument}
+The script in \textit{Listing~\ref{002_ok_empty_message.js}} shows two simple examples of using this function. The error message in \textit{Listing~\ref{002_ok_empty_message.log}} shows operator "\texttt{==}" is used to separate the actual value and the expected value.
+\lstinputlisting[caption={\textit{One is Okay and the other is not Okay}},label={002_ok_empty_message.js}]{../src/assert/002_ok_empty_message.js}
+\lstinputlisting[caption={\textit{The error messages of running script in Listing~\ref{002_ok_empty_message.js}}},label={002_ok_empty_message.log}]{../src/assert/002_ok_empty_message.log}
+\subsection{Two Arguments}
+The script in \textit{Listing~\ref{002_ok_with_message.js}} shows two examples with customized message. The customized message shows up in the error log in \textit{Listing~\ref{002_ok_empty_message.log}}.
+\lstinputlisting[caption={\textit{One is Okay and the other is not Okay: with optional truthy message}},label={002_ok_with_message.js}]{../src/assert/002_ok_with_message.js}
+\lstinputlisting[caption={\textit{The error messages of running script in Listing~\ref{002_ok_with_message.js}}},label={002_ok_empty_message.log}]{../src/assert/002_ok_empty_message.log}
+\section{assert.equal}
+\label{sec:assert.equal}
