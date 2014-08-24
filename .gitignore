@@ -10,3 +10,7 @@ docs/node_modules/
 # Information files
 info/
 
+# Temp files
+./docs/book.log
+./docs/book.aux
+
