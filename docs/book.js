@@ -17,9 +17,10 @@ console.log('Finished writing LaTex header');
  * Add all chapters here.
  */
 require('./chapters/assert').writeChapter(latexDoc);
-//require('./chapters/child_process').writeChapter(latexDoc);
-//require('./chapters/cluster').writeChapter(latexDoc);
-//require('./chapters/fs').writeChapter(latexDoc);
+require('./chapters/child_process').writeChapter(latexDoc);
+require('./chapters/cluster').writeChapter(latexDoc);
+require('./chapters/events').writeChapter(latexDoc);
+require('./chapters/fs').writeChapter(latexDoc);
 // TODO Add more chapters
 
 

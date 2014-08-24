@@ -2,121 +2,102 @@
     var fs = require('fs');
     var path = require('path');
     var helper = require('../js/chapterHelper');
+    var dir = path.join('..', 'src', path.basename(__filename).replace('.js', ''));
 
     module.exports.writeChapter = function (latexDoc) {
-        var title;
-        var file;
-        var caption;
-        var label;
-        var options = {};
-
-        var filename = path.basename(__filename).replace('.js', '.tex');
         var chapterTitle = 'Child Process';
-        var docChapter = '\n';
-        docChapter += '\\chapter{' + chapterTitle + '}\n\n';
+        var doc = '\n';
+        doc += '\\chapter{' + chapterTitle + '}\n\n';
 
-        docChapter += '\\section{Introduction}\n';
-
-        /**
-         * A new section.
-         */
-        docChapter += '\\section{child.pid}\n';
-        docChapter += 'This property is an integer, indicating the process ';
-        docChapter += 'identifier (normally referred to as the PID) of a ';
-        docChapter += 'child process. This PID is used to uniquely identify ';
-        docChapter += 'a process.\n';
-
-        title = 'The PID of a child process is written to the console';
-        file = '../src/child_process/001_pid.js';
-        caption = 'caption={' + title + '}';
-        label = 'label={listing_child_pid}';
-        options = [caption, label].join(',');
-        docChapter += '\\lstinputlisting[' + options + ']{' + file + '}';
-        docChapter += 'Line \\ref{line_child_pid} in Listing ';
-        docChapter += '\\ref{listing_child_pid} prints the process ID ';
-        docChapter += 'to the console.\n';
+        doc += '\\section{Introduction}\n';
 
         /**
          * A new section.
          */
-        docChapter += '\\section{child.kill}\n';
-        docChapter += 'We can use this function to send a signal to a child ';
-        docChapter += 'process. A default signal \\texttt{SIGTERM} will be ';
-        docChapter += 'sent if no argument is provided as shown in Listing ';
-        docChapter += '\\ref{listing_kill_default}.\n';
+        doc += '\\section{child.pid}\n';
+        doc += 'This property is an integer, indicating the process ';
+        doc += 'identifier (normally referred to as the PID) of a ';
+        doc += 'child process. This PID is used to uniquely identify ';
+        doc += 'a process.\n';
 
-        title = 'A child process is terminated by the default signal \\texttt{SIGTERM}';
-        docChapter += 'When running the above code, it is verified that the ';
-        docChapter += 'process is terminated by signal \\texttt{SIGTERM}.\n';
-        docChapter += '\n';
-
-        file = '../src/child_process/002_kill_default.js';
-        caption = 'caption={' + title + '}';
-        label = 'label={listing_kill_default}';
-        options = [caption, label].join(',');
-        docChapter += '\\lstinputlisting[' + options + ']{' + file + '}\n';
-
-        docChapter += 'Now we send a signal \\texttt{SIGHUP} to the child ';
-        docChapter += 'process as shown in Listing \\ref{listing_kill_sighup}. ';
-        docChapter += 'When running the above code, it is verified that the ';
-        docChapter += 'process is terminated by signal \\texttt{SIGHUP}.\n';
-        docChapter += '\n';
-
-        title = 'A child process is terminated by signal \\texttt{SIGHUP}';
-        file = '../src/child_process/002_kill_sighup.js';
-        caption = 'caption={' + title + '}';
-        label = 'label={listing_kill_sighup}';
-        options = [caption, label].join(',');
-        docChapter += '\\lstinputlisting[' + options + ']{' + file + '}\n';
-
-        docChapter += 'What if sending an invalid signal to a child process? ';
-        docChapter += 'A signal \\texttt{NOOP} is sent to a child process ';
-        docChapter += 'as demonstrated in Listing ';
-        docChapter += '\\ref{listing_kill_noop}. ';
-        docChapter += 'When running the above code, it is verified that an ';
-        docChapter += 'error is thrown and it complains about the unknown ';
-        docChapter += 'signal \\texttt{NOOP}.\n';
-
-        title = 'An invalid signal \\texttt{NOOP} is sent to a child process';
-        file = '../src/child_process/002_kill_noop.js';
-        caption = 'caption={' + title + '}';
-        label = 'label={listing_kill_noop}';
-        options = [caption, label].join(',');
-        docChapter += '\\lstinputlisting[' + options + ']{' + file + '}\n';
-
-        docChapter += 'Finally if \\texttt{child.kill()} is not called and ';
-        docChapter += 'a child process exits gracefully, a \\texttt{null} ';
-        docChapter += 'signal is expected. It is verified by the code in ';
-        docChapter += 'Listing \\ref{listing_finish_null_signal}. ';
-
-        title = 'No signal is sent to a child process and it exits cleanly';
-        file = '../src/child_process/002_finish_null_signal.js';
-        caption = 'caption={' + title + '}';
-        label = 'label={listing_finish_null_signal}';
-        options = [caption, label].join(',');
-        docChapter += '\\lstinputlisting[' + options + ']{' + file + '}\n';
-
+        var title1 = 'The PID of a child process is written to the console';
+        var filename1 = '001_pid.js';
+        var file1 = path.join(dir, filename1);
+        doc += helper.addListing(dir, file1, title1);
+        doc += 'Line \\ref{line_child_pid} in Listing \\ref{listing_child_pid} prints ';
+        doc += 'the process ID to the console.\n';
 
         /**
          * A new section.
          */
-        docChapter += '\\section{child\\_process.spawn}\n';
-        docChapter += 'This function allows us to ';
-        docChapter += 'launch a new process with the given command. The code ';
-        docChapter += 'in Listing \\ref{listing_spawn_simple} lists all files ';
-        docChapter += 'under the current directory and prints the file list ';
-        docChapter += 'to the console. \n';
+        doc += '\\section{child.kill}\n';
+        doc += 'We can use this function to send a signal to a child ';
+        doc += 'process. A default signal \\texttt{SIGTERM} will be ';
+        doc += 'sent if no argument is provided as shown in Listing ';
+        doc += '\\ref{listing_kill_default}.\n';
 
-        title = 'Spawn a new process to list files under the current directory';
-        file = '../src/child_process/003_spawn_simple.js';
-        caption = 'caption={' + title + '}';
-        label = 'label={listing_spawn_simple}';
-        options = [caption, label].join(',');
-        docChapter += '\\lstinputlisting[' + options + ']{' + file + '}\n';
+        doc += 'When running the above code, it is verified that the ';
+        doc += 'process is terminated by signal \\texttt{SIGTERM}.\n';
+        doc += '\n';
+
+        var title2 = 'A child process is terminated by the default signal \\texttt{SIGTERM}';
+        var filename2 = '002_kill_default.js';
+        var file2 = path.join(dir, filename2);
+        doc += helper.addListing(dir, file2, title2);
+
+        doc += 'Now we send a signal \\texttt{SIGHUP} to the child ';
+        doc += 'process as shown in Listing \\ref{listing_kill_sighup}. ';
+        doc += 'When running the above code, it is verified that the ';
+        doc += 'process is terminated by signal \\texttt{SIGHUP}.\n';
+        doc += '\n';
+
+        var title3 = 'A child process is terminated by signal \\texttt{SIGHUP}';
+        var filename3 = '002_kill_sighup.js';
+        var file3 = path.join(dir, filename3);
+        doc += helper.addListing(dir, file3, title3);
+
+        doc += 'What if sending an invalid signal to a child process? ';
+        doc += 'A signal \\texttt{NOOP} is sent to a child process ';
+        doc += 'as demonstrated in Listing ';
+        doc += '\\ref{listing_kill_noop}. ';
+        doc += 'When running the above code, it is verified that an ';
+        doc += 'error is thrown and it complains about the unknown ';
+        doc += 'signal \\texttt{NOOP}.\n';
+
+        var title4 = 'An invalid signal \\texttt{NOOP} is sent to a child process';
+        var fname4 = '002_kill_noop.js';
+        var file4 = path.join(dir, fname4);
+        doc += helper.addListing(dir, file4, title4);
+
+        doc += 'Finally if \\texttt{child.kill()} is not called and ';
+        doc += 'a child process exits gracefully, a \\texttt{null} ';
+        doc += 'signal is expected. It is verified by the code in ';
+        doc += 'Listing \\ref{listing_finish_null_signal}. ';
+
+        var title5 = 'No signal is sent to a child process and it exits cleanly';
+        var fname5 = '002_finish_null_signal.js';
+        var file5 = path.join(dir, fname5);
+        doc += helper.addListing(dir, file5, title5);
+
+        /**
+         * A new section.
+         */
+        doc += '\\section{child\\_process.spawn}\n';
+        doc += 'This function allows us to ';
+        doc += 'launch a new process with the given command. The code ';
+        doc += 'in Listing \\ref{listing_spawn_simple} lists all files ';
+        doc += 'under the current directory and prints the file list ';
+        doc += 'to the console. \n';
+
+        var title6 = 'Spawn a new process to list files under the current directory';
+        var fname6 = '003_spawn_simple.js';
+        var file6 = path.join(dir, fname6);
+        doc += helper.addListing(dir, file6, title6);
 
         // TODO A new section here.
 
         // Add the doc for this chapter to the main file.
-        helper.addChapter(chapterTitle, filename, docChapter, latexDoc);
+        var filename = path.basename(__filename).replace('.js', '.tex');
+        helper.addChapter(chapterTitle, filename, doc, latexDoc);
     }
 }());
