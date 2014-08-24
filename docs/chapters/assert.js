@@ -139,6 +139,7 @@
          * A new section.
          */
         doc += '\\section{assert.ok}\n';
+        doc += '\\label{sec:assert.ok}\n';
 
         doc += '\\subsection*{Syntax:}\n';
         doc += '\\begin{center}';
@@ -198,6 +199,26 @@
 
         var logTitle6 = 'The error messages of running script in Listing~\\ref{' + scriptFileName6 + '}';
         doc += helper.addListing(dir, logFile6, logTitle6);
+
+        /**
+         * A new section.
+         */
+        doc += '\\section{assert}\n';
+        doc += '\\subsection*{Syntax:}\n';
+        doc += '\\begin{center}';
+        doc += '\\texttt{assert(value, [message])}\n\n';
+        doc += '\\end{center}';
+        doc += 'where\n';
+        doc += '\\begin{itemize}\n';
+        doc += '\\item \\texttt{value}: check whether the value is truthy\n';
+        doc += '\\item \\texttt{message}: the message you want to display when an exception is thrown\n';
+        doc += '\\end{itemize}\n';
+        doc += '\n';
+
+        doc += 'This function is exactly the same as function \\texttt{assert.ok}. ';
+        doc += 'In fact, in the source code for module \\texttt{assert}, you can see the line below:\n\n';
+        doc += '\\lstinline$var assert = module.exports = ok;$';
+        doc += '\n';
 
         /**
          * A new section.
