@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.4.5)  24 AUG 2014 23:20
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.4.5)  30 AUG 2014 22:20
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -613,10 +613,18 @@ LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
 (../src/assert/001_fail_empty_message.log) [3]
 (../src/assert/002_ok_empty_message.js) (../src/assert/002_ok_empty_message.log
 ) (../src/assert/002_ok_with_message.js)
-(../src/assert/002_ok_empty_message.log) [4]) (./chapters/child_process.tex
-[5] [6
-
-] (../src/child_process/001_pid.js)
+(../src/assert/002_ok_empty_message.log) [4] (../src/assert/src.assert.equal.js
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 81.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 81.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 81.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 81.
+ (../src/assert/003_equal_passed.js) (../src/assert/003_equal_failed.js))
+(./chapters/child_process.tex [5] [6] (../src/child_process/001_pid.js)
 
 LaTeX Warning: Reference `listing_child_pid' on page 7 undefined on input line 
 8.
@@ -633,7 +641,9 @@ LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <12> not available
 LaTeX Warning: Reference `listing_kill_sighup' on page 7 undefined on input lin
 e 14.
 
-(../src/child_process/002_kill_sighup.js [7])
+(../src/child_process/002_kill_sighup.js [7
+
+])
 
 LaTeX Warning: Reference `listing_kill_noop' on page 8 undefined on input line 
 17.
@@ -665,15 +675,15 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) ) 
 Here is how much of TeX's memory you used:
- 7393 strings out of 493315
- 104850 string characters out of 6137905
- 312634 words of memory out of 5000000
- 10705 multiletter control sequences out of 15000+600000
- 17987 words of font info for 40 fonts, out of 8000000 for 9000
+ 7438 strings out of 493315
+ 105678 string characters out of 6137905
+ 312723 words of memory out of 5000000
+ 10732 multiletter control sequences out of 15000+600000
+ 21591 words of font info for 50 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  44i,12n,40p,702b,1645s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local
-/texlive/2013/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/t
+{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.en
+c}{/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
 xlive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texl
 ive/2013/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texliv
@@ -690,7 +700,7 @@ fonts/type1/public/cm-super/sfxc2488.pfb></usr/local/texlive/2013/texmf-dist/fo
 nts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type
 1/urw/courier/ucrr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/co
 urier/ucrro8a.pfb>
-Output written on book.pdf (15 pages, 225905 bytes).
+Output written on book.pdf (15 pages, 232742 bytes).
 PDF statistics:
  119 PDF objects out of 1000 (max. 8388607)
  85 compressed objects within 1 object stream

@@ -13,4 +13,4 @@ info/
 # Temp files
 ./docs/book.log
 ./docs/book.aux
-
+./docs/book.synctex.gz(busy)

@@ -225,6 +225,48 @@
          */
         doc += '\\section{assert.equal}\n';
         doc += '\\label{sec:assert.equal}\n';
+        doc += '\\subsection*{Syntax:}\n';
+        doc += '\\begin{center}';
+        doc += '\\texttt{assert.equal(actual, expected, [message])}\n\n';
+        doc += '\\end{center}';
+        doc += 'where\n';
+        doc += '\\begin{itemize}\n';
+        doc += '\\item \\texttt{actual}: the actual value returned by your function\n';
+        doc += '\\item \\texttt{expected}: the value you expect your function returns\n';
+        doc += '\\item \\texttt{message}: the message you want to display when an exception ';
+        doc += 'is thrown\n';
+        doc += '\\end{itemize}\n';
+        doc += '\n';
+
+        doc += 'The \\lstinline$assert.equal$ method is implemented in Node.js as follows:\n';
+        var scriptFileName7 = 'src.assert.equal.js';
+        var scriptFile7 = path.join(dir, scriptFileName7);
+        var title7 = 'The implementation of \\lstinline$assert.equal$ in Node.js';
+        doc += helper.addListing(dir, scriptFile7, title7);
+
+        doc += 'It is clear to see in \\textit{Listing~\\ref{' + scriptFileName7;
+        doc += '}} that \\lstinline$assert.equal$ performs shallow, coercive ';
+        doc += 'equality test with the equal comparison operator (==). Let\'s ';
+        doc += 'verify this with a few examples.';
+
+        var scriptFileName8 = '003_equal_passed.js';
+        var scriptFile8 = path.join(dir, scriptFileName8);
+        var title8 = 'Passing examples of \\lstinline$assert.equal$';
+        doc += helper.addListing(dir, scriptFile8, title8);
+
+        var scriptFileName9 = '003_equal_failed.js';
+        doc += 'All examples in \\textit{Listing~\\ref{' + scriptFileName8 + '}} pass. ';
+        doc += '\\textit{Listing~\\ref{' + scriptFileName9  + '}} provides a few ';
+        doc += 'failing examples. You may wonder why the assertion in ';
+        doc += 'Line \\ref{line_equal_failed} fails. Though the two objects have the ';
+        doc += 'same properties and values, they refer to two physically different ';
+        doc += 'objects. In another word, \\lstinline$assert.equal$ checks whether \n';
+        doc += '\\lstinline$actual$ and \\lstinline$expected$ points two the same ';
+        doc += 'object when both of them are objects.';
+        var scriptFile9 = path.join(dir, scriptFileName9);
+        var title9 = 'Failing examples of \\lstinline$assert.equal$';
+        doc += helper.addListing(dir, scriptFile9, title9);
+
 
         // TODO Add a new section here.
 
