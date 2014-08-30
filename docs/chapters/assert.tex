@@ -82,3 +82,15 @@ The \lstinline$assert.equal$ method is implemented in Node.js as follows:
 It is clear to see in \textit{Listing~\ref{src.assert.equal.js}} that \lstinline$assert.equal$ performs shallow, coercive equality test with the equal comparison operator (==). Let's verify this with a few examples.\lstinputlisting[caption={\textit{Passing examples of \lstinline$assert.equal$}},label={003_equal_passed.js}]{../src/assert/003_equal_passed.js}
 All examples in \textit{Listing~\ref{003_equal_passed.js}} pass. \textit{Listing~\ref{003_equal_failed.js}} provides a few failing examples. You may wonder why the assertion in Line \ref{line_equal_failed} fails. Though the two objects have the same properties and values, they refer to two physically different objects. In another word, \lstinline$assert.equal$ checks whether 
 \lstinline$actual$ and \lstinline$expected$ points two the same object when both of them are objects.\lstinputlisting[caption={\textit{Failing examples of \lstinline$assert.equal$}},label={003_equal_failed.js}]{../src/assert/003_equal_failed.js}
+\section{assert.notEqual}
+\label{sec:assert.notEqual}
+\subsection*{Syntax:}
+\begin{center}\texttt{assert.notEqual(actual, expected, [message])}
+
+\end{center}where
+\begin{itemize}
+\item \texttt{actual}: the actual value returned by your function
+\item \texttt{expected}: the value you expect your function returns
+\item \texttt{message}: the message you want to display when an exception is thrown
+\end{itemize}
+

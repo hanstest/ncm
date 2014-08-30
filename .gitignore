@@ -5,13 +5,14 @@
 docs/node_modules/
 
 # Chapter latex files
-./docs/chapters/*.tex
+docs/chapters/*.tex
 
 # Information files
 info/
 
 # Temp files
-./docs/book.log
-./docs/book.aux
+docs/book.log
+docs/book.aux
+docs/book.pdf
 docs/book.synctex.gz\(busy\)
 

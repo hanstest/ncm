@@ -267,6 +267,23 @@
         var title9 = 'Failing examples of \\lstinline$assert.equal$';
         doc += helper.addListing(dir, scriptFile9, title9);
 
+        /**
+         * A new section.
+         */
+        doc += '\\section{assert.notEqual}\n';
+        doc += '\\label{sec:assert.notEqual}\n';
+        doc += '\\subsection*{Syntax:}\n';
+        doc += '\\begin{center}';
+        doc += '\\texttt{assert.notEqual(actual, expected, [message])}\n\n';
+        doc += '\\end{center}';
+        doc += 'where\n';
+        doc += '\\begin{itemize}\n';
+        doc += '\\item \\texttt{actual}: the actual value returned by your function\n';
+        doc += '\\item \\texttt{expected}: the value you expect your function returns\n';
+        doc += '\\item \\texttt{message}: the message you want to display when an exception ';
+        doc += 'is thrown\n';
+        doc += '\\end{itemize}\n';
+        doc += '\n';
 
         // TODO Add a new section here.
 
